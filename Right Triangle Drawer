@@ -1,0 +1,68 @@
+import java.util.Scanner; // imports scanner
+
+public class sample {
+	
+	public static void main(String[] args) { 
+	
+		Scanner scan = new Scanner (System.in); //starts a scanner	
+		System.out.print("What version of Triangle drawer would you like to use (1=Isaacs 2=CJs): ");
+		int y = scan.nextInt(); //Assigns the version of code to y
+	
+			while (y < 1 || y > 2) { // checks to make sure user entered a valid version
+				if (y < 1 || y > 2) {
+					System.out.print("Please enter what version (1=Isaacs 2=CJs): ");
+					y = scan.nextInt(); //re-enter a new version
+				}
+			}
+	
+			while ( y == 1 || y == 2) { //Section of code when user does enter a valid number
+				if (y==1) { //start of Isaacs Code
+		
+					System.out.println("Isaacs Code");
+					System.out.print("Enter a character : "); //prompts user to enter character
+					String char1 = scan.next(); //Assigns the character entered to a variable	
+					System.out.print("Enter triangle height (1-10): "); //prompts the user to enter a height
+					int height = scan.nextInt(); //Assigns the height to a variable
+		
+					while (height < 1 || height >10) { //checks to make sure user enters a valid triangle height
+						System.out.print("Please enter a number between 1 and 10: ");
+						height = scan.nextInt();
+					}
+		
+					for (int startHeight = 1 ; startHeight < height ; startHeight++ ) { //starts loop for the height of the triangle
+						System.out.println(char1); //prints the first character in every line
+						for (int numRepeat = 0 ; numRepeat < startHeight ; numRepeat++) { //loop within the height to make the width run until it matches what level the triangle is on	
+							System.out.print(char1); //prints the amount of characters to fill the width	
+						}
+					}
+					System.out.println(char1); // adds an extra character at the end to complete the triangle
+				}
+				
+				if (y==2) { // Start of CJs code
+		 
+					System.out.println("CJs Code");
+					Scanner scnr = new Scanner(System.in);
+					System.out.print("Enter a character: ");
+					char userChar = scnr.next().charAt(0);
+					System.out.print("Enter triangle height (1-10): ");
+					int numRows = scnr.nextInt();
+		 
+					while (numRows < 1 || numRows > 10); {
+						if (numRows <1 || numRows >10) {
+							System.out.println("Please enter a height between 1 and 10.");
+							numRows = scnr.nextInt();
+						}
+					}
+			
+					System.out.println("");
+		 
+					for (int i = 1; i <= numRows; i++) {
+						for (int x = 1; x <= i; x++) {
+							System.out.print(userChar + " ");
+						}
+						System.out.println("");		 
+					}
+				}
+			}	
+	}	
+}
